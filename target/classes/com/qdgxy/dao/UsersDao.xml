@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qdgxy.dao.UsersDao">
+    <insert id="addUsers">
+        insert  into kdl(username,password,age,birthday) values(#{username},#{password},#{age},#{birthday})
+    </insert>
+
+    <select id="countUser" resultType="Integer">
+        select count(*) from kdl where username=#{username}
+    </select>
+
+    <select id="login" resultType="Integer">
+        select count(*) from kdl where username=#{username} and password=#{password}
+    </select>
+
+    <select id="queryUsers" resultType="User">
+        select username,age,birthday from kdl
+    </select>
+</mapper>
